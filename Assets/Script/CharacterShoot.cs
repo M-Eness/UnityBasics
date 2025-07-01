@@ -7,7 +7,7 @@ public class CharacterShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform gun;
     public GameObject player;
-    public float bulletForce = 2000f;
+    public float bulletForce = 100f;
     public float fireRate = 2f; // saniyede 2 mermi
     private float fireCooldown = 0f;
     void Start()
