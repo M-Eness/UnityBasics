@@ -30,18 +30,5 @@ public class NavMeshMovement : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (spawner.transform.childCount != 0)
-            {
-                spawner.transform.GetChild(0).gameObject.GetComponent<EnemyHealthBar>().takeDamage(10);
-                if (spawner.transform.GetChild(0).gameObject.GetComponent<EnemyHealthBar>().currentHealth == 0)
-                {
-                    Destroy(spawner.transform.GetChild(0).gameObject);
-                }
-
-                }
-        }
     }
 }

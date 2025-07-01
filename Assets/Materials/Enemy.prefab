@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6562006426233671134}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   Foreground: {fileID: 226131341755510074}
   HPCanvas: {fileID: 5015251383150883940}
   maxHealth: 100
+  currentHealth: 0
 --- !u!1 &6225488860103903971
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,3 +458,4 @@ MonoBehaviour:
   Foreground: {fileID: 226131341755510074}
   HPCanvas: {fileID: 5015251383150883940}
   maxHealth: 100
+  currentHealth: 0

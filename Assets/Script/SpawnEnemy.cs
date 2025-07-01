@@ -6,9 +6,9 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject enemyPrefab;          // Spawn edilecek düşman prefabı
-    public GameObject[] enemyArray;
-    public Transform player;    
-    public Transform plane;             
+    public GameObject enemyArray;
+    public Transform player;
+    public Transform plane;
     public float minDistance = 5.0f;         // Oyuncudan ne kadar uzaklıkta spawn olacak
     public float spawnInterval = 5.0f;        // Kaç saniyede bir spawn edilecek
     private float timer;
@@ -60,5 +60,13 @@ public class SpawnEnemy : MonoBehaviour
         {
             Debug.LogWarning("Geçerli spawn noktası bulunamadı.");
         }
+    }
+         void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            collision.gameObject.GetComponent<EnemyHealthBar>().takeDamage(25);  // Mermi hasarını buradan ayarlayabilirsin
+            Destroy(collision.gameObject); // Mermiyi yok et
         }
+    }
 }

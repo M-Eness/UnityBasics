@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3680987461440985129, guid: 10a31d02e62514fbcadcbcc353c508c2, type: 3}
-  enemyArray: []
+  enemyArray: {fileID: 378060431}
   player: {fileID: 1605858086}
   plane: {fileID: 52697344}
   minDistance: 3
@@ -791,6 +791,7 @@ MonoBehaviour:
   gun: {fileID: 1967873823}
   player: {fileID: 1605858082}
   bulletForce: 100
+  fireRate: 2
 --- !u!1 &1609656374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 889315436467371910, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
@@ -913,6 +914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 889315436467371910, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 909756996101253493, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
       value: 0
@@ -925,6 +930,10 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.15204048
       objectReference: {fileID: 0}
+    - target: {fileID: 1228603165084491197, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 889315436467371910, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
     - target: {fileID: 6957713589740908601, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2

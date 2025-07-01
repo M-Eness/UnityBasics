@@ -21,6 +21,10 @@ public class EnemyHealthBar : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         updateHealthBar();
+        if (currentHealth <= 0)
+        {
+            Destroy(HPCanvas.parent.gameObject); // Düşmanı yok et
+        }
         
     }
 
