@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
+    public TowerData towerData;
     public Transform barrel;
     public GameObject enemySpawner;
     public GameObject bulletPrefab;

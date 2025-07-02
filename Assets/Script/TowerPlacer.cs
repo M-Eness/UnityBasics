@@ -6,8 +6,10 @@ public class TowerPlacer : MonoBehaviour
 {
     public GameObject towerPrefab;
     public TowerPopupController popupController;
-    public string towerName = "Okçu Kulesi";
-    public int towerCost = 30;
+    public TowerData towerData;
+    public int GetCost() => towerData.cost;
+    public float GetDamage() => towerData.damage;
+    public TowerType GetTowerType() => towerData.towerType;
 
     private Vector3 pendingBuildPosition;
     private bool isPopupActive = false;
@@ -28,8 +30,8 @@ public class TowerPlacer : MonoBehaviour
 
                 Vector3 mouseScreenPos = Input.mousePosition;
                 popupController.ShowPopup(
-                    towerName,
-                    towerCost,
+                    towerData.towerType.ToString(), 
+                    towerData.cost,
                     OnConfirmBuild,
                     OnCancelBuild,
                     mouseScreenPos
@@ -41,10 +43,10 @@ public class TowerPlacer : MonoBehaviour
     // Onay fonksiyonu
     void OnConfirmBuild()
     {
-        if (BloodManager.KanSayacı.currentBlood >= towerCost)
+        if (BloodManager.KanSayacı.currentBlood >= towerData.cost)
         {
             Instantiate(towerPrefab, pendingBuildPosition, Quaternion.identity);
-            BloodManager.KanSayacı.spendBlood(towerCost);
+            BloodManager.KanSayacı.spendBlood(towerData.cost);
         }
         isPopupActive = false;
     }

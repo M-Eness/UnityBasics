@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088123929a4e14b6ba0edf2ca3b3f343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerData: {fileID: 11400000, guid: 00b1d09c7bc164c4e8960d9f186234fa, type: 2}
   barrel: {fileID: 1417569301894000698}
   enemySpawner: {fileID: 0}
   bulletPrefab: {fileID: 889315436467371910, guid: 1701a14cfc95745bab17bd203a3b9058, type: 3}
