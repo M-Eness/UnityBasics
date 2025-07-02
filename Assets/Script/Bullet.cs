@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log("DÜŞMAN VURULDU");
             EnemyHealthBar enemyHealth = other.GetComponent<EnemyHealthBar>();
             if (enemyHealth != null)
             {

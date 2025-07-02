@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class TowerPlacer : MonoBehaviour
 {
-    public GameObject towerPrefab;
+    public GameObject[] towerPrefab;
     public TowerPopupController popupController;
-    public TowerData towerData;
-    public int GetCost() => towerData.cost;
-    public float GetDamage() => towerData.damage;
-    public TowerType GetTowerType() => towerData.towerType;
+    public TowerData[] towerData;
+    private int selectedTowerIndex = 0; 
 
     private Vector3 pendingBuildPosition;
     private bool isPopupActive = false;
+
+     public void SelectTower(int index)
+    {
+        if (index >= 0 && index < towerPrefab.Length)
+        {
+            selectedTowerIndex = index;
+            Debug.Log("Seçilen kule: " + towerData[selectedTowerIndex].towerType);
+        }
+    }
 
     void Update()
     {
@@ -25,13 +32,13 @@ public class TowerPlacer : MonoBehaviour
             {
                 // Kuleyi doğrudan yerleştirmek yerine pozisyonu kaydet ve popup aç
                 pendingBuildPosition = hit.point;
-                pendingBuildPosition.y += towerPrefab.transform.localScale.y / 2f;
+                pendingBuildPosition.y += towerPrefab[selectedTowerIndex].transform.localScale.y / 2f;
                 isPopupActive = true;
 
                 Vector3 mouseScreenPos = Input.mousePosition;
                 popupController.ShowPopup(
-                    towerData.towerType.ToString(), 
-                    towerData.cost,
+                    towerData[selectedTowerIndex].towerType.ToString(), 
+                    towerData[selectedTowerIndex].cost,
                     OnConfirmBuild,
                     OnCancelBuild,
                     mouseScreenPos
@@ -43,10 +50,16 @@ public class TowerPlacer : MonoBehaviour
     // Onay fonksiyonu
     void OnConfirmBuild()
     {
-        if (BloodManager.KanSayacı.currentBlood >= towerData.cost)
+        TowerData data = towerData[selectedTowerIndex];
+        if (BloodManager.KanSayacı.currentBlood >= data.cost)
         {
-            Instantiate(towerPrefab, pendingBuildPosition, Quaternion.identity);
-            BloodManager.KanSayacı.spendBlood(towerData.cost);
+            GameObject tower = Instantiate(towerPrefab[selectedTowerIndex], pendingBuildPosition, Quaternion.identity);
+            // TowerController'a data'yı ata
+            TowerController controller = tower.GetComponent<TowerController>();
+            if (controller != null)
+                controller.towerData = data;
+
+            BloodManager.KanSayacı.spendBlood(data.cost);
         }
         isPopupActive = false;
     }
@@ -54,6 +67,17 @@ public class TowerPlacer : MonoBehaviour
     // Vazgeç fonksiyonu
     void OnCancelBuild()
     {
+        TowerData data = towerData[selectedTowerIndex];
+        if (BloodManager.KanSayacı.currentBlood >= data.cost)
+        {
+            GameObject tower = Instantiate(towerPrefab[selectedTowerIndex], pendingBuildPosition, Quaternion.identity);
+            // TowerController'a data'yı ata
+            TowerController controller = tower.GetComponent<TowerController>();
+            if (controller != null)
+                controller.towerData = data;
+
+            BloodManager.KanSayacı.spendBlood(data.cost);
+        }
         isPopupActive = false;
     }
 }
