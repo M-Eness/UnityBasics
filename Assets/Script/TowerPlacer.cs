@@ -5,29 +5,53 @@ using UnityEngine;
 public class TowerPlacer : MonoBehaviour
 {
     public GameObject towerPrefab;
+    public TowerPopupController popupController;
+    public string towerName = "Okçu Kulesi";
+    public int towerCost = 30;
 
-    void Start()
-    {
-        
-    }
+    private Vector3 pendingBuildPosition;
+    private bool isPopupActive = false;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(1) && !isPopupActive)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-         
             if (Physics.Raycast(ray, out hit))
             {
-                // İstenilen pozisyona kule instantiate et
-                Vector3 placePosition = hit.point;
-                placePosition.y += towerPrefab.transform.localScale.y / 2f;
+                // Kuleyi doğrudan yerleştirmek yerine pozisyonu kaydet ve popup aç
+                pendingBuildPosition = hit.point;
+                pendingBuildPosition.y += towerPrefab.transform.localScale.y / 2f;
+                isPopupActive = true;
 
-                Instantiate(towerPrefab, placePosition, Quaternion.identity);
+                Vector3 mouseScreenPos = Input.mousePosition;
+                popupController.ShowPopup(
+                    towerName,
+                    towerCost,
+                    OnConfirmBuild,
+                    OnCancelBuild,
+                    mouseScreenPos
+                );
             }
         }
+    }
+
+    // Onay fonksiyonu
+    void OnConfirmBuild()
+    {
+        if (BloodManager.KanSayacı.currentBlood >= towerCost)
+        {
+            Instantiate(towerPrefab, pendingBuildPosition, Quaternion.identity);
+            BloodManager.KanSayacı.spendBlood(towerCost);
+        }
+        isPopupActive = false;
+    }
+
+    // Vazgeç fonksiyonu
+    void OnCancelBuild()
+    {
+        isPopupActive = false;
     }
 }

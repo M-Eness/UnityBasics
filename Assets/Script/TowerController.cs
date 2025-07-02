@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerConroller : MonoBehaviour
+public class TowerController : MonoBehaviour
 {
     public Transform barrel;
     public GameObject enemySpawner;

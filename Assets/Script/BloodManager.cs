@@ -20,6 +20,12 @@ public class BloodManager : MonoBehaviour
         UpdateBloodUI();
     }
 
+    public void spendBlood(int Amount)
+    {
+        currentBlood -= Amount;
+        UpdateBloodUI();
+    }
+
     public void UpdateBloodUI()
     {
         bloodText.text = currentBlood.ToString();
