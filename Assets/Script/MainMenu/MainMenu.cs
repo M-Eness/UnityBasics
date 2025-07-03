@@ -8,16 +8,16 @@ public class MainMenu : MonoBehaviour
     public GameObject panel;
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void OpenCharacterChooser()
     {
-        panel.SetActive(true);
+        SceneManager.LoadSceneAsync(1);
     }
     
     public void CloseCharacterChooser()
     {
-        panel.SetActive(false);
+       SceneManager.LoadSceneAsync(0);
     }
 }
