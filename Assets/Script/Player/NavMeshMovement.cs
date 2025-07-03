@@ -7,7 +7,7 @@ public class NavMeshMovement : MonoBehaviour
 {
      private NavMeshAgent agent;
     private GameObject spawner;
-    public float timer = 0.15f;
+    public float timer = 1f;
 
     // Start is called before the first frame update
     void Start()

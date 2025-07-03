@@ -26,7 +26,7 @@ public class ClosestEnemy : MonoBehaviour
     }
     void Start()
     {
-        
+        enemySpawner = GameObject.FindGameObjectWithTag("Spawner").transform;
     }
 
     // Update is called once per frame

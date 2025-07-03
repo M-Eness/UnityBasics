@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   characterName: Skeleton
-  characterPrefab: {fileID: 919132149155446097, guid: 6be3f64dcd9564d948b868a6fbba1609, type: 3}
+  characterPrefab: {fileID: 7505179069139685701, guid: fdeee4689f1f042efa6bce5018fc8b0f, type: 3}
   damage: 30

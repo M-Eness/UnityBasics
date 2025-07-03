@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Vampire
   m_EditorClassIdentifier: 
   characterName: Vampire
-  characterPrefab: {fileID: 919132149155446097, guid: 62caffdf2fd274d999567e9cd5399a7c, type: 3}
+  characterPrefab: {fileID: 4946119590006735915, guid: de11a3189f62d41d99335c97ae392815, type: 3}
   damage: 40
