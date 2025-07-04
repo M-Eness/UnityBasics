@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject enemyPrefab;          // Spawn edilecek düşman prefabı
-    public GameObject enemyArray;
+    public EnemyData[] enemies;          // Spawn edilecek düşman prefabı
     public Transform player;
     public Transform plane;
     public float minDistance = 5.0f;         // Oyuncudan ne kadar uzaklıkta spawn olacak
@@ -30,6 +29,16 @@ public class SpawnEnemy : MonoBehaviour
 
     void spawn()
     {
+          if (enemies == null || enemies.Length == 0)
+        {
+            Debug.LogWarning("Enemy array is empty!");
+            return;
+        }
+
+        // Rastgele bir düşman prefabı seç
+        int enemyIndex = Random.Range(0, enemies.Length);
+        EnemyData selectedEnemy = enemies[enemyIndex];
+
         // Rastgele bir yön belirle
         Vector3 spawnPoint;
         float distance;
@@ -53,7 +62,7 @@ public class SpawnEnemy : MonoBehaviour
 
         if (attempts < maxAttempts)
         {
-            GameObject newSpawnEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+            GameObject newSpawnEnemy = Instantiate(selectedEnemy.enemyPrefab, spawnPoint, Quaternion.identity);
             newSpawnEnemy.transform.parent = this.transform;
         }
         else
@@ -65,7 +74,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            collision.gameObject.GetComponent<EnemyHealthBar>().takeDamage(25);  // Mermi hasarını buradan ayarlayabilirsin
+            collision.gameObject.GetComponent<EnemyHealthBar>().takeDamage(25);  // TODO: Karakterin özelleiğine bağlı olmalı
             Destroy(collision.gameObject); // Mermiyi yok et
         }
     }

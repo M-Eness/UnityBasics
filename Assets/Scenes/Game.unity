@@ -185,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2785d3e261e963c4793fc5970256592e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -875,8 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d118690b7727d4a04b218ac6e8c62921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3680987461440985129, guid: 10a31d02e62514fbcadcbcc353c508c2, type: 3}
-  enemyArray: {fileID: 378060431}
+  enemies:
+  - {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
   player: {fileID: 0}
   plane: {fileID: 52697344}
   minDistance: 3
@@ -2394,6 +2394,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048631547}
   m_CullTransparentMesh: 1
+--- !u!1001 &1988809422540346286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.33056974
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.32999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1437912
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363024146083654628, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027498173159240030, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_Name
+      value: Erika Archer With Bow Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046527102365823390, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8654c7086dba54efb86b22501c1e2829, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2407,3 +2468,4 @@ SceneRoots:
   - {fileID: 540195678}
   - {fileID: 855490888}
   - {fileID: 377844270}
+  - {fileID: 1988809422540346286}

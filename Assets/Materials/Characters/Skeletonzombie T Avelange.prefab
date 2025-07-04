@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 1
+  anim: {fileID: 0}
 --- !u!114 &8658352277748175819
 MonoBehaviour:
   m_ObjectHideFlags: 0
