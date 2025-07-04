@@ -8,11 +8,14 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private Transform player;
     public EnemyData enemy;
+    public Animator anim;
+    public bool isWalking = false;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        anim = GetComponent<Animator>();
         
     }
 
@@ -45,6 +48,24 @@ public class EnemyMovement : MonoBehaviour
             {
                 agent.SetDestination(player.position);
             }
+            // Hareket kontrolü ve animasyon
+             // Agent velocity büyükse hareket ediyor, küçükse duruyor
+            if (agent.velocity.sqrMagnitude > 0.1f)
+            {
+              if (!isWalking)
+                {
+                    anim.SetBool("isWalking", true);
+                    isWalking = true;
+                }
+             }
+             else
+             {
+                if (isWalking)
+                {
+                    anim.SetBool("isWalking", false);
+                    isWalking = false;
+                }
+        }
         }
     }
 }

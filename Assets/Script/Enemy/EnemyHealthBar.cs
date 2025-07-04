@@ -9,12 +9,14 @@ public class EnemyHealthBar : MonoBehaviour
     public Transform HPCanvas;
     public float maxHealth = 100f;
     public float currentHealth;
-    
+    public Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     public void takeDamage(int damage)
@@ -24,8 +26,10 @@ public class EnemyHealthBar : MonoBehaviour
         updateHealthBar();
         if (currentHealth <= 0)
         {
-            Destroy(HPCanvas.parent.gameObject); // Düşmanı yok et
             BloodManager.KanSayacı.addBlood(20);
+            anim.SetBool("isDead", true);
+            Destroy(HPCanvas.parent.gameObject, 1.5f); // Düşmanı yok et
+            
         }
         
     }
