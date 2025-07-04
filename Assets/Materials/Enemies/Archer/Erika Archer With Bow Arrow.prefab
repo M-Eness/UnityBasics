@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8feff937ec2614b16aa9bfc6de17ff84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
 --- !u!195 &-1518063973183700121
 NavMeshAgent:
   m_ObjectHideFlags: 0
