@@ -17,4 +17,4 @@ MonoBehaviour:
   maxHealth: 100
   speed: 3
   attackPower: 10
-  range: 15
+  range: 5

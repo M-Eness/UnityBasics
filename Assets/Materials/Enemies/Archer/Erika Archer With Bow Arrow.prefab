@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1976635163252505071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9109491570738178415}
+  m_Layer: 0
+  m_Name: ArrowSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9109491570738178415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976635163252505071}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.002835697, y: -0.0036605904, z: -0.00020422494, w: 0.9999893}
+  m_LocalPosition: {x: 0, y: 0.07, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1960945172516844487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6182653828163895839
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +225,7 @@ MonoBehaviour:
   HPCanvas: {fileID: 3528624107617919658}
   maxHealth: 100
   currentHealth: 0
+  anim: {fileID: 0}
 --- !u!1 &6284423711290760195
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +372,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: 0
       addedObject: {fileID: 3528624107617919658}
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9109491570738178415}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: -1
@@ -356,6 +391,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1518063973183700121}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3825932707716089601}
   m_SourcePrefab: {fileID: 100100000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
 --- !u!4 &363024146083654628 stripped
 Transform:
@@ -390,7 +428,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -433,6 +471,7 @@ MonoBehaviour:
   HPCanvas: {fileID: 3528624107617919658}
   maxHealth: 100
   currentHealth: 50
+  anim: {fileID: 0}
 --- !u!114 &3357596107924572656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +485,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
+  anim: {fileID: 0}
+  arrowPrefab: {fileID: 4291273799199297047, guid: 65e41dd4de9334e28a10110aaa27f9d5, type: 3}
+  arrowSpawnPoint: {fileID: 9109491570738178415}
+  isWalking: 0
 --- !u!195 &-1518063973183700121
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -468,3 +511,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3825932707716089601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027498173159240030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56827009d8d14323a62b9f1abcd81d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 1126009478440896020, guid: 07e1b70f369284fc49df8fcc18966a4a, type: 3}
+  spawnPoint: {fileID: 9109491570738178415}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  arrowForce: 30
+  enemyMovement: {fileID: 0}
+--- !u!4 &1960945172516844487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
+  m_PrefabInstance: {fileID: 180990561376390159}
+  m_PrefabAsset: {fileID: 0}
