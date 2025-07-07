@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5552234066714625543}
   - component: {fileID: 5285810486912076101}
   - component: {fileID: 7709105663501011782}
+  - component: {fileID: -912479657662143266}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -76,12 +77,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.07, y: 0.04, z: 0.42}
-  m_Center: {x: 0, y: -0.09, z: 0.18}
+  m_Size: {x: 0.29, y: 0.23, z: 0.08}
+  m_Center: {x: 0, y: -0.06, z: 0.39}
+--- !u!114 &-912479657662143266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126009478440896020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa33cddad30c54511b42c0330ebbdc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemtyShoot: {fileID: 0}
 --- !u!1001 &8388218123777676943
 PrefabInstance:
   m_ObjectHideFlags: 0

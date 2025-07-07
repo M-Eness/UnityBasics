@@ -32,10 +32,10 @@ public class EnemyMovement : MonoBehaviour
         {
             if (enemy.enemyName == "Archer")
             {
-                Debug.Log($"ARCHER MESAFE: {distance}, RANGE: {enemy.range}");
+                
                 if (distance > enemy.range)
                 {
-                    Debug.Log("MESAFE ÇOK UZAK");
+                 
                     // Okcunun range i kadar uzakta kalacak oradan saldıracak.
                     Vector3 targetPosition = player.position - direction.normalized * enemy.range;
                     agent.SetDestination(targetPosition);

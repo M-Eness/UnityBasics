@@ -8,6 +8,7 @@ TagManager:
   - Spawner
   - Bullet
   - Enemy
+  - PlayerHealth
   layers:
   - Default
   - TransparentFX

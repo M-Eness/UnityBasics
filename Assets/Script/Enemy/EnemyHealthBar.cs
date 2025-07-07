@@ -36,7 +36,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void updateHealthBar()
     {
-        Debug.Log("healthFillImage: " + Foreground);
         float ratio = currentHealth / maxHealth;
         Foreground.fillAmount = ratio;
     }

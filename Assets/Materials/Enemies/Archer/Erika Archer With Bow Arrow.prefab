@@ -451,10 +451,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.26
   m_Height: 2.6
   m_Direction: 1
-  m_Center: {x: 0, y: 1.08, z: 0}
+  m_Center: {x: 0, y: 1, z: -0.09}
 --- !u!114 &-9217598146134933818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   arrowPrefab: {fileID: 4291273799199297047, guid: 65e41dd4de9334e28a10110aaa27f9d5, type: 3}
   arrowSpawnPoint: {fileID: 9109491570738178415}
-  isWalking: 0
+  isWalking: 1
 --- !u!195 &-1518063973183700121
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -526,9 +526,10 @@ MonoBehaviour:
   arrowPrefab: {fileID: 1126009478440896020, guid: 07e1b70f369284fc49df8fcc18966a4a, type: 3}
   spawnPoint: {fileID: 9109491570738178415}
   player: {fileID: 0}
-  enemy: {fileID: 0}
-  arrowForce: 30
+  enemy: {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
+  arrowForce: 5
   enemyMovement: {fileID: 0}
+  player_health: {fileID: 0}
 --- !u!4 &1960945172516844487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
