@@ -15,3 +15,4 @@ MonoBehaviour:
   characterName: Skeleton
   characterPrefab: {fileID: 7505179069139685701, guid: fdeee4689f1f042efa6bce5018fc8b0f, type: 3}
   damage: 30
+  health: 100

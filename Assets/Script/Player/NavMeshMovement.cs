@@ -12,13 +12,17 @@ public class NavMeshMovement : MonoBehaviour
 
     bool isWalking = false;
 
+     public float maxHealth = 100f;
+     public float currentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         anim = GetComponent<Animator>();
-       // test_spawner = spawner.GetComponent<SpawnEnemy>().tes;
+        // test_spawner = spawner.GetComponent<SpawnEnemy>().tes;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -39,18 +43,29 @@ public class NavMeshMovement : MonoBehaviour
             }
 
         }
-         // Hedefe ulaşıldı mı kontrolü
-    if (isWalking)
-    {
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        // Hedefe ulaşıldı mı kontrolü
+        if (isWalking)
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f)
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
             {
-                Debug.Log("HEDEFE ULAŞILDI");
-                anim.SetBool("isWalking", false); // Idle animasyonu başlat
-                isWalking = false; // Bir kereye mahsus çalışsın
+                if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f)
+                {
+                    Debug.Log("HEDEFE ULAŞILDI");
+                    anim.SetBool("isWalking", false); // Idle animasyonu başlat
+                    isWalking = false; // Bir kereye mahsus çalışsın
+                }
             }
         }
     }
+    
+     public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log("Karakter öldü");
+        }
     }
+
 }

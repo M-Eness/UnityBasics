@@ -746,8 +746,8 @@ MonoBehaviour:
   popupPanel: {fileID: 516710936}
   towerNameText: {fileID: 566700323}
   costText: {fileID: 81713154}
-  confirmButton: {fileID: 2048631549}
-  cancelButton: {fileID: 974386681}
+  archerButton: {fileID: 2048631549}
+  gunnerButton: {fileID: 974386681}
 --- !u!114 &377844267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,7 +1809,7 @@ RectTransform:
   m_GameObject: {fileID: 974386679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.54, y: 1.54, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 491548391}
@@ -2562,7 +2562,7 @@ RectTransform:
   m_GameObject: {fileID: 2048631547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.56, y: 1.58, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 121298087}

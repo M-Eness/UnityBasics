@@ -7,26 +7,30 @@ public class EnemyShoot : MonoBehaviour
 {
    public GameObject arrowPrefab;
     public Transform spawnPoint;
-    public Transform player;
     public EnemyData enemy;
     public float arrowForce = 5f;
     public EnemyMovement enemyMovement;
     public TMP_Text player_health;
+    public NavMeshMovement playerStats;
+    public float currentHealth;
     void Start()
     {
         if (enemyMovement == null)
         {
             enemyMovement = GetComponent<EnemyMovement>();
         }
-
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        
         if (player_health == null)
         {
             player_health = GameObject.FindGameObjectWithTag("PlayerHealth").GetComponent<TMP_Text>();
         }
-        
-        player_health.text = enemy.maxHealth.ToString();
+
+        if (playerStats == null)
+            playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshMovement>();
+
+        currentHealth = playerStats.currentHealth;
+        player_health.text = currentHealth.ToString();
+        Debug.Log("TEKRAR ÇALIŞTI");
     }
 
     public void Fire() // Atış animasyonunda tetiklenen fonksiyon
@@ -34,11 +38,11 @@ public class EnemyShoot : MonoBehaviour
         Debug.Log("Event Tetiklendi");
         if (!enemyMovement.isWalking)
         {
-            Transform target = player.transform;
+            Transform target = playerStats.transform;
 
             if (target != null)
             {
-                float upOffset = 1.5f;
+                float upOffset = 1.2f;
                 Vector3 direction = ((target.position + Vector3.up * upOffset) - spawnPoint.position).normalized;
                 GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, Quaternion.LookRotation(direction));
                 arrow.GetComponent<Arrow>().enemtyShoot = this; 
@@ -54,19 +58,16 @@ public class EnemyShoot : MonoBehaviour
 
     public void hit(float damage)
     {
-        float health = float.Parse(player_health.text);
+        
         Debug.Log("Karakter vuruludu");
-        health -= damage;
-        if (health <= 0)
-        {
-            player_health.text = "0";
-            enemy.maxHealth = 0;
-        }
-        else
-        {
-            player_health.text = health.ToString();
-            enemy.maxHealth = ((int)health);
-        }
+        playerStats.TakeDamage(damage);
+
+        player_health.text = playerStats.currentHealth.ToString();
+
+        if (playerStats.currentHealth <= 0)
+            {
+                Destroy(playerStats.gameObject, 2); // karakteri yok et
+            }
 
     }
 

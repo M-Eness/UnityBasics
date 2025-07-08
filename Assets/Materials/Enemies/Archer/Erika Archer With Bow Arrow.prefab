@@ -367,7 +367,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4936884950917866777, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: 0
@@ -525,11 +526,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 1126009478440896020, guid: 07e1b70f369284fc49df8fcc18966a4a, type: 3}
   spawnPoint: {fileID: 9109491570738178415}
-  player: {fileID: 0}
+  player: {fileID: 11400000, guid: 36aba7b879cbe4fc697bac6466231e60, type: 2}
   enemy: {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
   arrowForce: 5
   enemyMovement: {fileID: 0}
   player_health: {fileID: 0}
+  currentHealth: 0
 --- !u!4 &1960945172516844487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}

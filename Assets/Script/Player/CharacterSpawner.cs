@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    public CharacterData[] characters;  
-    public Transform spawnPoint; 
+    public CharacterData[] characters;
+    public Transform spawnPoint;
 
     void Start()
     {

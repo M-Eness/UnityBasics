@@ -15,3 +15,4 @@ MonoBehaviour:
   characterName: Vampire
   characterPrefab: {fileID: 4946119590006735915, guid: de11a3189f62d41d99335c97ae392815, type: 3}
   damage: 40
+  health: 80
