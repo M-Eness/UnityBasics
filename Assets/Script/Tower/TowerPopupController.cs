@@ -8,30 +8,38 @@ public class TowerPopupController : MonoBehaviour
     public GameObject popupPanel;
     public TMP_Text towerNameText;
     public TMP_Text costText;
-    public Button confirmButton;
-    public Button cancelButton;
+    public Button archerButton;
+    public Button gunnerButton;
 
     public void ShowPopup(string name, int cost, System.Action onConfirm, System.Action onCancel, Vector3 mousePos)
     {
         towerNameText.text = name;
         costText.text = "Maliyet: " + cost;
         popupPanel.SetActive(true);
+        Debug.Log("Panel Açıldı");
 
         popupPanel.GetComponent<RectTransform>().position = mousePos;
 
         // Önce eski listener'ları temizle
-        confirmButton.onClick.RemoveAllListeners();
-        cancelButton.onClick.RemoveAllListeners();
+        archerButton.onClick.RemoveAllListeners();
+        gunnerButton.onClick.RemoveAllListeners();
+        Debug.Log("Eski listenerlar temizlendi");
 
         // Yeni listener ekle
-        confirmButton.onClick.AddListener(() => {
+
+        archerButton.onClick.AddListener(() =>
+        {
+            Debug.Log("Butona Basıldı");
             popupPanel.SetActive(false);
             onConfirm?.Invoke();
         });
-        cancelButton.onClick.AddListener(() => {
+        gunnerButton.onClick.AddListener(() =>
+        {
+            Debug.Log("Diğer Butona Basıldı");
             popupPanel.SetActive(false);
             onCancel?.Invoke();
         });
+        Debug.Log("İşlem bitti");
     }
 
     private void Start()
