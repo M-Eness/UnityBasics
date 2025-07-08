@@ -13,8 +13,8 @@ public class NavMeshMovement : MonoBehaviour
 
     bool isWalking = false;
 
-     public float maxHealth = 100f;
-     public float currentHealth;
+    public float maxHealth = 100f;
+    public float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -58,19 +58,39 @@ public class NavMeshMovement : MonoBehaviour
             }
         }
     }
-    
-     public void TakeDamage(float amount)
+
+    public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
+        if ((currentHealth - amount) > 0)
+        {
+            currentHealth -= amount;
+        }else
+            currentHealth = 0;
+        
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            Debug.Log("Karakter öldü");
-            Destroy(this.gameObject, 2); // karakteri yok et  
-            SceneManager.LoadSceneAsync(3);
-            
-            
+            StartCoroutine(HandleDeath());
+
+
+
+
         }
+    }
+    
+    private IEnumerator HandleDeath()
+    {
+        //Ölüm animasyonunu tetikle
+        anim.SetBool("isDead", true);
+        Debug.Log("Karakter öldü. Animasyon başladı.");
+
+        float deathAnimationDuration = 2.0f;
+        yield return new WaitForSeconds(deathAnimationDuration);
+
+        Destroy(this.gameObject); // karakteri yok et 
+
+        //Bekleme süresi dolduktan sonra sahneyi değiştir
+        Debug.Log("Animasyon süresi doldu. Sahne değiştiriliyor...");
+        SceneManager.LoadScene(3); // Game Over ekranı
     }
 
 }

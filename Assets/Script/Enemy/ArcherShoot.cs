@@ -63,12 +63,6 @@ public class EnemyShoot : MonoBehaviour
         playerStats.TakeDamage(damage);
 
         player_health.text = playerStats.currentHealth.ToString();
-
-        if (playerStats.currentHealth <= 0)
-            {
-                //Destroy(playerStats.gameObject, 2); // karakteri yok et
-            }
-
     }
 
     // Update is called once per frame
