@@ -15,12 +15,16 @@ public class ClosestEnemy : MonoBehaviour
 
         foreach (Transform enemy in enemySpawner)
         {
-            float distance = Vector3.Distance(player.position, enemy.position);
-            if (distance < closestDistance)
+            if (enemy.gameObject.CompareTag("Enemy"))
             {
-                closestDistance = distance;
-                closestEnemy = enemy;
+                float distance = Vector3.Distance(player.position, enemy.position);
+                if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestEnemy = enemy;
+                    } 
             }
+            
         }
         return closestEnemy;
     }

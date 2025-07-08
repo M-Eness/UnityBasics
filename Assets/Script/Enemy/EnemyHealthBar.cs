@@ -27,6 +27,8 @@ public class EnemyHealthBar : MonoBehaviour
         if (currentHealth <= 0)
         {
             BloodManager.KanSayacı.addBlood(20);
+            HPCanvas.gameObject.SetActive(false);
+            this.gameObject.tag = "Dead";
             anim.SetBool("isDead", true);
             Destroy(HPCanvas.parent.gameObject, 1.5f); // Düşmanı yok et
             
