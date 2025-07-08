@@ -66,7 +66,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (playerStats.currentHealth <= 0)
             {
-                Destroy(playerStats.gameObject, 2); // karakteri yok et
+                //Destroy(playerStats.gameObject, 2); // karakteri yok et
             }
 
     }

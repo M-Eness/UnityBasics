@@ -109,8 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfa687991e1946b3ac6ffdc8c6b7efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.5
+  timer: 1
   anim: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!114 &8658352277748175819
 MonoBehaviour:
   m_ObjectHideFlags: 0

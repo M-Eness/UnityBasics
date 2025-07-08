@@ -14,6 +14,7 @@ public class TowerPlacer : MonoBehaviour
 
      public void SelectTower(int index)
     {
+        Debug.Log("Kule Seçildi");
         if (index >= 0 && index < towerPrefab.Length)
         {
             selectedTowerIndex = index;
