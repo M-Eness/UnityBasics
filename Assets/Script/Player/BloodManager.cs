@@ -5,7 +5,7 @@ using TMPro;
 
 public class BloodManager : MonoBehaviour
 {
-    public static BloodManager KanSayacı;
+    public static BloodManager KanSayacı; // singleton yapısı
     public int currentBlood = 0;
     public TMP_Text bloodText;
 

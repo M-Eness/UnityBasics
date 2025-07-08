@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class NavMeshMovement : MonoBehaviour
 {
@@ -65,6 +66,10 @@ public class NavMeshMovement : MonoBehaviour
         {
             currentHealth = 0;
             Debug.Log("Karakter öldü");
+            Destroy(this.gameObject, 2); // karakteri yok et  
+            SceneManager.LoadSceneAsync(3);
+            
+            
         }
     }
 
