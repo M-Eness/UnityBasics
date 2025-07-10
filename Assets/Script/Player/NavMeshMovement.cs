@@ -15,6 +15,7 @@ public class NavMeshMovement : MonoBehaviour
 
     public float maxHealth = 100f;
     public float currentHealth;
+    public GameObject gameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class NavMeshMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         anim = GetComponent<Animator>();
-        // test_spawner = spawner.GetComponent<SpawnEnemy>().tes;
+        gameOverCanvas = GameObject.FindGameObjectWithTag("GameOver");
+        gameOverCanvas.SetActive(false);
         currentHealth = maxHealth;
     }
 
@@ -71,7 +73,7 @@ public class NavMeshMovement : MonoBehaviour
         {
             this.tag = "Dead";
             StartCoroutine(HandleDeath());
-
+            
 
 
 
@@ -88,10 +90,10 @@ public class NavMeshMovement : MonoBehaviour
         yield return new WaitForSeconds(deathAnimationDuration);
 
         Destroy(this.gameObject); // karakteri yok et 
-
-        //Bekleme süresi dolduktan sonra sahneyi değiştir
-        Debug.Log("Animasyon süresi doldu. Sahne değiştiriliyor...");
-        SceneManager.LoadScene(3); // Game Over ekranı
+        gameOverCanvas.SetActive(true); // Game Over ekranı
+       
+        
+       
     }
 
 }

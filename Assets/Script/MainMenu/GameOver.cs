@@ -11,14 +11,15 @@ public class GameOver : MonoBehaviour
     public TMP_Text bloodText;
     void Start()
     {
-        kan = BloodManager.KanSayacı.currentBlood;
-        bloodText.text = (kan + "");
+         kan = BloodManager.KanSayacı.currentBlood;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        kan = BloodManager.KanSayacı.currentBlood;
+        Debug.Log(kan);
+        bloodText.text = (kan + "");
     }
     public void BackToMenu()
     {
