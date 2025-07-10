@@ -69,6 +69,7 @@ public class NavMeshMovement : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+            this.tag = "Dead";
             StartCoroutine(HandleDeath());
 
 

@@ -40,7 +40,7 @@ public class EnemyShoot : MonoBehaviour
         {
             Transform target = playerStats.transform;
 
-            if (target != null)
+            if (target != null && playerStats.gameObject.CompareTag("Player"))
             {
                 float upOffset = 1.2f;
                 Vector3 direction = ((target.position + Vector3.up * upOffset) - spawnPoint.position).normalized;

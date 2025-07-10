@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class EnemyHealthBar : MonoBehaviour
         updateHealthBar();
         if (currentHealth <= 0)
         {
+            this.gameObject.GetComponent<EnemyMovement>().enabled = false;
+            this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
             BloodManager.KanSayacı.addBlood(20);
             HPCanvas.gameObject.SetActive(false);
             this.gameObject.tag = "Dead";

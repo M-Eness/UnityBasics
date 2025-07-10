@@ -20,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= spawnInterval)
+        if (timer >= spawnInterval && player.gameObject.CompareTag("Player"))
         {
             spawn();
             timer = 0;

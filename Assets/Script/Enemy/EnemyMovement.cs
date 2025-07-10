@@ -24,12 +24,13 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Yön vektörü ve mesafe hesapla
-        Vector3 direction = player.position - transform.position;
-        float distance = direction.magnitude;
-
-        if (player != null)
+        if (player != null && player.gameObject.CompareTag("Player"))
         {
+            // Yön vektörü ve mesafe hesapla
+            Vector3 direction = player.position - transform.position;
+            float distance = direction.magnitude;
+
+        
             if (enemy.enemyName == "Archer")
             {
                 
