@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemtyShoot: {fileID: 0}
+  blood: {fileID: 0}
+  bloodEffectPrefab: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067, type: 3}
+  bloodSpawnPoint: {fileID: 0}
 --- !u!96 &3926368651647698804
 TrailRenderer:
   serializedVersion: 3

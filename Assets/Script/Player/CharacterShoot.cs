@@ -22,7 +22,7 @@ public class CharacterShoot : MonoBehaviour
 
         if (target != null && fireCooldown <= 0f)
         {
-            GameObject bullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, gun.position + Vector3.up * 1.5f, Quaternion.identity);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
             Vector3 direction = (target.position - gun.position).normalized;

@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1960945172516844487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4215719744503530701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7000233313205260015}
+  m_Layer: 0
+  m_Name: BloodSpawnPoint
+  m_TagString: BloodPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7000233313205260015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215719744503530701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 547164904585796704}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6182653828163895839
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +404,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: 0
       addedObject: {fileID: 3528624107617919658}
+    - targetCorrespondingSourceObject: {fileID: 366175167995203695, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7000233313205260015}
     - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9109491570738178415}
@@ -399,6 +433,11 @@ PrefabInstance:
 --- !u!4 &363024146083654628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
+  m_PrefabInstance: {fileID: 180990561376390159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &547164904585796704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 366175167995203695, guid: ac8fe0b81b9f44144af5ac972a88e959, type: 3}
   m_PrefabInstance: {fileID: 180990561376390159}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1027498173159240030 stripped

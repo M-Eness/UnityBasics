@@ -11,6 +11,8 @@ TagManager:
   - PlayerHealth
   - Dead
   - GameOver
+  - BloodPoint
+  - PlayerBlood
   layers:
   - Default
   - TransparentFX

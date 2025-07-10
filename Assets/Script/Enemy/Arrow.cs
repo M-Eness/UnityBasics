@@ -5,6 +5,14 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public EnemyShoot enemtyShoot;
+    public GameObject blood;
+    public GameObject bloodEffectPrefab; // Inspector'dan prefab atanacak
+    public Transform bloodSpawnPoint;
+
+    void Start()
+    {
+         bloodSpawnPoint = GameObject.FindGameObjectWithTag("PlayerBlood").transform;
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -13,6 +21,16 @@ public class Arrow : MonoBehaviour
             Debug.Log("Oyuncu VURULDU");
 
             enemtyShoot.hit(enemtyShoot.enemy.attackPower); // EnemyShoot'taki EnemyData'dan damage'ı aldım.
+        
+
+            Vector3 contactPoint = bloodSpawnPoint.position;
+            Quaternion rotation = Quaternion.LookRotation(bloodSpawnPoint.forward);
+
+            blood = Instantiate(bloodEffectPrefab, contactPoint, rotation);
+            blood.transform.SetParent(bloodSpawnPoint); 
+
+                
+            Destroy(blood, 1);
 
             Destroy(gameObject); // mermiyi yok et
         }
