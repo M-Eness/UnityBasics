@@ -275,3 +275,6 @@ MonoBehaviour:
   hedefCursorTexture: {fileID: 2800000, guid: 1f5cabe412672484fb2020985df42962, type: 3}
   alanCursorTexture: {fileID: 2800000, guid: 87a741e094eb649dd8e8e2ec809496f1, type: 3}
   hotspot: {x: 64, y: 64}
+  meteorPrefab: {fileID: 100006, guid: ea7f0a965d6dbfa4fb82fbf7494fb222, type: 3}
+  damage: 100
+  radius: 10

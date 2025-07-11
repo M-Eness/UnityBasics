@@ -9,8 +9,13 @@ public class SkillManager : MonoBehaviour
     public static SkillType currentSkill = SkillType.none;
     public Texture2D hedefCursorTexture;
     public Texture2D alanCursorTexture;
-
     public Vector2 hotspot = new Vector2(64, 64);
+    public GameObject meteorPrefab;
+    public float fallSpeed = 10f;
+    //public GameObject hedefSkillEffectPrefab; Şu an yok
+
+    public int damage = 100;
+    public float radius = 10f;
 
     public void ChooseSkill()
     {
@@ -35,15 +40,23 @@ public class SkillManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (currentSkill == SkillType.alan)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Alan Skilli Kullanıldı");
-                currentSkill = SkillType.none;
-            }
-            else if (currentSkill == SkillType.hedef)
-            {
-                Debug.Log("Target Skilli Kullanıldı");
-                currentSkill = SkillType.none;
+                Vector3 hitPoint = hit.point;
+
+                if (currentSkill == SkillType.alan)
+                {
+                    Debug.Log("Alan Skilli Kullanıldı");
+                    Instantiate(meteorPrefab, hitPoint + Vector3.up * 15f, Quaternion.identity); // Yukarıdan düşsün diye yukarı koyduk
+                    currentSkill = SkillType.none;
+                }
+                else if (currentSkill == SkillType.hedef)
+                {
+                    Debug.Log("Target Skilli Kullanıldı");
+                    currentSkill = SkillType.none;
+                }
             }
         }
     }
@@ -68,8 +81,10 @@ public class SkillManager : MonoBehaviour
                 break;
         }
     }
+   
     void Start()
     {
+        GetComponent<Rigidbody>().velocity = Vector3.down * fallSpeed;
         currentSkill = SkillType.none;
         UpdateCursor();
     }
