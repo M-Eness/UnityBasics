@@ -16,11 +16,13 @@ public class NavMeshMovement : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public GameObject gameOverCanvas;
+    public SkillManager skillManager;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        skillManager = GetComponent<SkillManager>();
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         anim = GetComponent<Animator>();
         gameOverCanvas = GameObject.FindGameObjectWithTag("GameOver");
@@ -32,33 +34,42 @@ public class NavMeshMovement : MonoBehaviour
     void Update()
     {
         Time.timeScale = timer;
-        if (Input.GetMouseButtonDown(0))
+        if (SkillManager.currentSkill == SkillManager.SkillType.none)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                anim.SetBool("isWalking", true);
-                agent.SetDestination(hit.point);
-                isWalking = true;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    anim.SetBool("isWalking", true);
+                    agent.SetDestination(hit.point);
+                    isWalking = true;
+
+                }
 
             }
-
         }
-        // Hedefe ulaşıldı mı kontrolü
-        if (isWalking)
+        else
         {
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            Debug.Log("Skill Seçili olduğu için yürüyemezsin");
+        }
+            
+    
+        // Hedefe ulaşıldı mı kontrolü
+            if (isWalking)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f)
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
                 {
-                    Debug.Log("HEDEFE ULAŞILDI");
-                    anim.SetBool("isWalking", false); // Idle animasyonu başlat
-                    isWalking = false; // Bir kereye mahsus çalışsın
+                    if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f)
+                    {
+                        Debug.Log("HEDEFE ULAŞILDI");
+                        anim.SetBool("isWalking", false); // Idle animasyonu başlat
+                        isWalking = false; // Bir kereye mahsus çalışsın
+                    }
                 }
             }
-        }
     }
 
     public void TakeDamage(float amount)

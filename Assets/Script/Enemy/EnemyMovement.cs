@@ -30,13 +30,13 @@ public class EnemyMovement : MonoBehaviour
             Vector3 direction = player.position - transform.position;
             float distance = direction.magnitude;
 
-        
+
             if (enemy.enemyName == "Archer")
             {
-                
+
                 if (distance > enemy.range)
                 {
-                 
+
                     // Okcunun range i kadar uzakta kalacak oradan saldıracak.
                     Vector3 targetPosition = player.position - direction.normalized * enemy.range;
                     agent.SetDestination(targetPosition);
@@ -69,6 +69,10 @@ public class EnemyMovement : MonoBehaviour
                     isWalking = false;
                 }
             }
+        }
+        else if (player.gameObject.CompareTag("Dead"))
+        {
+            // TODO: IDLE ekleneeck
         }
     } 
 }

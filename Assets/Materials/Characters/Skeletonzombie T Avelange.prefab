@@ -120,6 +120,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6be3f64dcd9564d948b868a6fbba1609, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8520409536725234463}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6be3f64dcd9564d948b868a6fbba1609, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8640783630025965000}
   m_SourcePrefab: {fileID: 100100000, guid: 6be3f64dcd9564d948b868a6fbba1609, type: 3}
 --- !u!4 &7057777407505595515 stripped
 Transform:
@@ -153,6 +156,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   gameOverCanvas: {fileID: 0}
+  skillManager: {fileID: 0}
 --- !u!114 &8658352277748175819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +201,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -256,3 +260,18 @@ CapsuleCollider:
   m_Height: 2.12
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
+--- !u!114 &8640783630025965000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505179069139685701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee75b8b0edc3430b8403e87249ee93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hedefCursorTexture: {fileID: 2800000, guid: 1f5cabe412672484fb2020985df42962, type: 3}
+  alanCursorTexture: {fileID: 2800000, guid: 87a741e094eb649dd8e8e2ec809496f1, type: 3}
+  hotspot: {x: 64, y: 64}

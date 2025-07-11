@@ -36,7 +36,7 @@ public class EnemyShoot : MonoBehaviour
     public void Fire() // Atış animasyonunda tetiklenen fonksiyon
     {
         Debug.Log("Event Tetiklendi");
-        if (!enemyMovement.isWalking)
+        if (!enemyMovement.isWalking && playerStats != null)
         {
             Transform target = playerStats.transform;
 
