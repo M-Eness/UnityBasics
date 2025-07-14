@@ -11,6 +11,9 @@ public class SkillManager : MonoBehaviour
     public Texture2D alanCursorTexture;
     public Vector2 hotspot = new Vector2(64, 64);
     public GameObject meteorPrefab;
+    public GameObject AreaIndıcator;
+    public GameObject IndıcatorToSpawn;
+    public LayerMask groundLayer;
     //public GameObject hedefSkillEffectPrefab; Şu an yok
 
     public int damage = 100;
@@ -32,6 +35,10 @@ public class SkillManager : MonoBehaviour
         {
             currentSkill = SkillType.none;
             Debug.Log("Skill Bırakıldı");
+            if (AreaIndıcator != null)
+            {
+                Destroy(AreaIndıcator);
+            }
         }
     }
 
@@ -49,6 +56,7 @@ public class SkillManager : MonoBehaviour
                 {
                     Debug.Log("Alan Skilli Kullanıldı");
                     Instantiate(meteorPrefab, hitPoint + Vector3.up * 15f, Quaternion.identity); // Yukarıdan düşsün diye yukarı koyduk
+                    Destroy(AreaIndıcator);
                     currentSkill = SkillType.none;
                 }
                 else if (currentSkill == SkillType.hedef)
@@ -69,7 +77,32 @@ public class SkillManager : MonoBehaviour
                 break;
 
             case SkillType.alan:
-                Cursor.SetCursor(alanCursorTexture, hotspot, CursorMode.Auto);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                // Zeminle çarpışma kontrolü
+                if (Physics.Raycast(ray, out hit, 100f, groundLayer))
+                {
+                    Vector3 hitPoint = hit.point;
+
+                    // Obje daha önce instantiate edilmemişse oluştur
+                    if (AreaIndıcator == null)
+                    {
+                        AreaIndıcator = Instantiate(IndıcatorToSpawn, hitPoint, Quaternion.identity);
+                    }
+
+                    // Obje varsa mouse'u takip etsin
+                    if (AreaIndıcator != null)
+                    {
+                        AreaIndıcator.SetActive(true);
+                        AreaIndıcator.transform.position = hitPoint;
+                    }
+                }
+                else
+                {
+                    // Zemin dışında başka bir yer ise indikatörü kaldır
+                     AreaIndıcator.SetActive(false);
+                }
                 break;
 
             case SkillType.none:

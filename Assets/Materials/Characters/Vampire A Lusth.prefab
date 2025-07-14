@@ -287,6 +287,11 @@ MonoBehaviour:
   alanCursorTexture: {fileID: 2800000, guid: 87a741e094eb649dd8e8e2ec809496f1, type: 3}
   hotspot: {x: 64, y: 64}
   meteorPrefab: {fileID: 100006, guid: ea7f0a965d6dbfa4fb82fbf7494fb222, type: 3}
+  "AreaInd\u0131cator": {fileID: 0}
+  "Ind\u0131catorToSpawn": {fileID: 3975570141920659645, guid: 23695ca452fd04b4e8cfd412029eb71f, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   damage: 100
   radius: 10
 --- !u!4 &5760091979644116625 stripped
