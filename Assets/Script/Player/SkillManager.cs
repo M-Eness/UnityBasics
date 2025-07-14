@@ -11,7 +11,6 @@ public class SkillManager : MonoBehaviour
     public Texture2D alanCursorTexture;
     public Vector2 hotspot = new Vector2(64, 64);
     public GameObject meteorPrefab;
-    public float fallSpeed = 10f;
     //public GameObject hedefSkillEffectPrefab; Şu an yok
 
     public int damage = 100;
@@ -84,7 +83,6 @@ public class SkillManager : MonoBehaviour
    
     void Start()
     {
-        GetComponent<Rigidbody>().velocity = Vector3.down * fallSpeed;
         currentSkill = SkillType.none;
         UpdateCursor();
     }

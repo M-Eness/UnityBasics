@@ -9,7 +9,7 @@ public class SpawnEnemy : MonoBehaviour
     public Transform player;
     public Transform plane;
     public float minDistance = 5.0f;         // Oyuncudan ne kadar uzaklıkta spawn olacak
-    public float spawnInterval = 5.0f;        // Kaç saniyede bir spawn edilecek
+    public float spawnInterval = 2.0f;        // Kaç saniyede bir spawn edilecek
     private float timer;
     void Start()
     {

@@ -5,7 +5,7 @@ using TMPro;
 
 public class EnemyShoot : MonoBehaviour
 {
-   public GameObject arrowPrefab;
+    public GameObject arrowPrefab;
     public Transform spawnPoint;
     public EnemyData enemy;
     public float arrowForce = 5f;
@@ -45,7 +45,7 @@ public class EnemyShoot : MonoBehaviour
                 float upOffset = 1.2f;
                 Vector3 direction = ((target.position + Vector3.up * upOffset) - spawnPoint.position).normalized;
                 GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, Quaternion.LookRotation(direction));
-                arrow.GetComponent<Arrow>().enemtyShoot = this; 
+                arrow.GetComponent<Arrow>().enemyShoot = this; 
 
                 Rigidbody rb = arrow.GetComponent<Rigidbody>();
                 rb.AddForce(direction * arrowForce, ForceMode.Impulse);

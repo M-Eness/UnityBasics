@@ -9,8 +9,6 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
     public EnemyData enemy;
     public Animator anim;
-    public GameObject arrowPrefab;
-    public Transform arrowSpawnPoint;
     public bool isWalking = true;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +43,22 @@ public class EnemyMovement : MonoBehaviour
                 {
                     // Yeterince yakınsa dur
                     agent.ResetPath();
+                }
+            }
+            else if (enemy.enemyName == "Sword")
+            {
+                if (distance > enemy.range)
+                {
+
+                    agent.SetDestination(player.position);
+                    anim.SetBool("inDistance", false);
+
+                }
+                else
+                {
+                    // Yeterince yakınsa dur
+                    agent.ResetPath();
+                    anim.SetBool("inDistance", true);
                 }
             }
             else

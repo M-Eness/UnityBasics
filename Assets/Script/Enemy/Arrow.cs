@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public EnemyShoot enemtyShoot;
+    public EnemyShoot enemyShoot;
     public GameObject blood;
     public GameObject bloodEffectPrefab; // Inspector'dan prefab atanacak
     public Transform bloodSpawnPoint;
@@ -21,7 +21,7 @@ public class Arrow : MonoBehaviour
         {
             Debug.Log("Oyuncu VURULDU");
 
-            enemtyShoot.hit(enemtyShoot.enemy.attackPower); // EnemyShoot'taki EnemyData'dan damage'ı aldım.
+            enemyShoot.hit(enemyShoot.enemy.attackPower); // EnemyShoot'taki EnemyData'dan damage'ı aldım.
         
 
             Vector3 contactPoint = bloodSpawnPoint.position;

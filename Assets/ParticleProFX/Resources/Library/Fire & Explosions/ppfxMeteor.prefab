@@ -19384,6 +19384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  radius: 10
+  radius: 4
   alanSkillEffectPrefab: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   fallSpeed: 30

@@ -11,7 +11,8 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-         bloodSpawnPoint = GameObject.FindGameObjectWithTag("BloodPoint").transform;
+        bloodSpawnPoint = GameObject.FindGameObjectWithTag("BloodPoint").transform;
+        
     }
 
     // Update is called once per frame

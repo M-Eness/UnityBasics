@@ -13,6 +13,7 @@ TagManager:
   - GameOver
   - BloodPoint
   - PlayerBlood
+  - Sword
   layers:
   - Default
   - TransparentFX

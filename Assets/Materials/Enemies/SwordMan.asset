@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb84862cacec40af9340f683d78b11b, type: 3}
   m_Name: SwordMan
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyPrefab: {fileID: 0}
-  maxHealth: 100
+  enemyName: Sword
+  enemyPrefab: {fileID: 3201827191102524880, guid: bed41ba7a41b442dcb243c1b6b4f0644, type: 3}
+  maxHealth: 200
   speed: 3
-  attackPower: 10
-  range: 15
+  attackPower: 300
+  range: 1

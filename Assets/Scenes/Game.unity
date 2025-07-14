@@ -772,10 +772,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: bb15e59b860d24583a1be4152ea59b25, type: 2}
+  - {fileID: 11400000, guid: 03389b9d5a53746a38543842b17eaa5a, type: 2}
   player: {fileID: 0}
   plane: {fileID: 52697344}
   minDistance: 3
-  spawnInterval: 5
+  spawnInterval: 1
 --- !u!1 &471933902
 GameObject:
   m_ObjectHideFlags: 0
