@@ -31,19 +31,22 @@ public class TowerPlacer : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                // Kuleyi doğrudan yerleştirmek yerine pozisyonu kaydet ve popup aç
-                pendingBuildPosition = hit.point;
-                pendingBuildPosition.y += towerPrefab[selectedTowerIndex].transform.localScale.y / 2f;
-                isPopupActive = true;
+                if (hit.transform.gameObject.CompareTag("TowerBase"))
+                {
+                    // Kuleyi doğrudan yerleştirmek yerine pozisyonu kaydet ve popup aç
+                    pendingBuildPosition = hit.point;
+                    pendingBuildPosition.y += towerPrefab[selectedTowerIndex].transform.localScale.y / 2f;
+                    isPopupActive = true;
 
-                Vector3 mouseScreenPos = Input.mousePosition;
-                popupController.ShowPopup(
-                    towerData[selectedTowerIndex].towerType.ToString(), 
-                    towerData[selectedTowerIndex].cost,
-                    OnConfirmBuild,
-                    OnCancelBuild,
-                    mouseScreenPos
-                );
+                    Vector3 mouseScreenPos = Input.mousePosition;
+                    popupController.ShowPopup(
+                        towerData[selectedTowerIndex].towerType.ToString(),
+                        towerData[selectedTowerIndex].cost,
+                        OnConfirmBuild,
+                        OnCancelBuild,
+                        mouseScreenPos
+                    );
+                }
             }
         }
     }
