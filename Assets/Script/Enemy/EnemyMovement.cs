@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-        else if (player.gameObject.CompareTag("Dead"))
+        else if (player != null && player.gameObject.CompareTag("Dead"))
         {
             // TODO: IDLE ekleneeck
         }

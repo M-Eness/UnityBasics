@@ -11,6 +11,7 @@ public class SkillManager : MonoBehaviour
     public Texture2D alanCursorTexture;
     public Vector2 hotspot = new Vector2(64, 64);
     public GameObject meteorPrefab;
+    public GameObject planePrefab;
     public GameObject AreaIndıcator;
     public GameObject IndıcatorToSpawn;
     public LayerMask groundLayer;
@@ -30,6 +31,10 @@ public class SkillManager : MonoBehaviour
         {
             currentSkill = SkillType.hedef;
             Debug.Log("Target Skilli Seçili");
+            if (AreaIndıcator != null)
+            {
+                Destroy(AreaIndıcator);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -55,12 +60,21 @@ public class SkillManager : MonoBehaviour
                 if (currentSkill == SkillType.alan)
                 {
                     Debug.Log("Alan Skilli Kullanıldı");
-                    Instantiate(meteorPrefab, hitPoint + Vector3.up * 15f, Quaternion.identity); // Yukarıdan düşsün diye yukarı koyduk
+                    Instantiate(meteorPrefab, hitPoint + Vector3.up * 15f, Quaternion.identity);
                     Destroy(AreaIndıcator);
                     currentSkill = SkillType.none;
                 }
                 else if (currentSkill == SkillType.hedef)
                 {
+                    if (hit.collider.CompareTag("Enemy"))
+                    {
+                        GameObject plane = Instantiate(planePrefab, hitPoint + Vector3.up * 15f, Quaternion.identity); // Yukarıdan düşsün diye yukarı koyduk
+                        Plane planeScript = plane.GetComponent<Plane>();
+                        if(planeScript != null)
+                            {
+                                planeScript.target = hit.transform;
+                            }
+                    }
                     Debug.Log("Target Skilli Kullanıldı");
                     currentSkill = SkillType.none;
                 }

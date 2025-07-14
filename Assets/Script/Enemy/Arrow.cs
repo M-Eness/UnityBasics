@@ -12,7 +12,6 @@ public class Arrow : MonoBehaviour
     void Start()
     {
         bloodSpawnPoint = GameObject.FindGameObjectWithTag("PlayerBlood").transform;
-        Debug.Log("BloodSpawnPoint" + bloodSpawnPoint.position);
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,11 +24,9 @@ public class Arrow : MonoBehaviour
         
 
             Vector3 contactPoint = bloodSpawnPoint.position;
-            Debug.Log("Contact point" + contactPoint);
             Quaternion rotation = Quaternion.LookRotation(bloodSpawnPoint.forward);
 
             blood = Instantiate(bloodEffectPrefab, contactPoint, rotation);
-            Debug.Log("Blood point" + blood.transform.position);
             blood.transform.SetParent(bloodSpawnPoint); 
 
 
