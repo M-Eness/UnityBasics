@@ -91,6 +91,9 @@ public class SkillManager : MonoBehaviour
                 break;
 
             case SkillType.alan:
+
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Hedeften alana geçildiğide hedef cursorı hala ekranda kalıyordu
+
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
